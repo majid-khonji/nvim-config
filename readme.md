@@ -2,6 +2,10 @@
 
 A sleek and powerful Neovim setup focused on productivity with fuzzy search, Git tools, Markdown/Obsidian integration and AI assistance.
 
+For a more comprehensive experience, use the Fish shell with the following plugins:
+- [Terminal Secretary](https://github.com/majid-khonji/terminal-secretary) for inline terminal GPT invocation (supports reading from the primary selection clipboard for fast Q&A).
+- [Johnny Decimal Navigator](https://github.com/majid-khonji/johnny-decimal-navigator) for efficient folder navigation following the [Johnny Decimal](https://johnnydecimal.com/) convention.
+
 ## Features
 
 - 🎨 Gruvbox theme with custom styling
