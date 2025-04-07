@@ -181,6 +181,7 @@ noremap <Leader>p "+p
 noremap <Leader>d :NvimTreeToggle<CR> :AerialClose<CR>:CopilotChatClose<CR> 
 " Copilot chat
 noremap <Leader>c <Esc>:AerialClose<CR>:NvimTreeClose<CR>:CopilotChatToggle<CR>
+noremap <c-s> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:CopilotChatToggle<CR>
 " Avante cursor
 noremap <c-h> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:lua require('avante').toggle()<CR>
 inoremap <c-h> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:lua require('avante').toggle()<CR>
