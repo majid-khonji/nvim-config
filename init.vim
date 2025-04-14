@@ -16,6 +16,8 @@ set scrolloff=8
 set signcolumn=auto
 set colorcolumn=120
 set nowrap
+set hlsearch
+set inccommand=nosplit
 " otherwise mouse highlight moves to view mode which is not good
 set mouse=
 
@@ -63,7 +65,6 @@ Plug 'stevearc/dressing.nvim'
 """"
 " Lanugage server setup
 Plug 'williamboman/mason.nvim'
-
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -71,7 +72,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" For coding auto-complete
+Plug 'mhartington/formatter.nvim'
+" For coding auto-complete (an alternative approach to the above)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """""
@@ -97,6 +99,9 @@ Plug 'zbirenbaum/copilot.lua'
 " Yay, pass source=true if you want to build from source
 Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
+""""""""
+" Agument AI Agent
+Plug 'augmentcode/augment.vim'
 """"""""
 
 " Toggle comment 
@@ -130,7 +135,7 @@ Plug 'numToStr/FTerm.nvim'
 Plug 'NeogitOrg/neogit'
 Plug 'sindrets/diffview.nvim'
 
-" a nice plugin for cmd line
+" cmdline Center screen, messages notification
 Plug 'folke/noice.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
@@ -228,14 +233,14 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 " nmap <silent> gr <Plug>(coc-references)
 " nmap <leader>a <Plug>(coc-codeaction-cursor)
 " nnoremap <leader>r <Plug>(coc-rename)
-nmap <silent> gd <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
-nmap <silent> gt <cmd>lua vim.lsp.buf.type_definition()<CR>
+nmap <silent> gd <cmd>lua require('telescope.builtin').lsp_definitions({ no_ignore = true })<CR>
+nmap <silent> gt <cmd>lua require('telescope.builtin').lsp_type_definitions({ no_ignore = true })<CR>
 nmap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nmap <silent> gr <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nmap <silent> gr <cmd>lua require('telescope.builtin').lsp_references({ no_ignore = true })<CR>
 nmap <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <c-f> <cmd>lua vim.lsp.buf.format({ async = true })<CR>
+nnoremap <c-f> <cmd>lua vim.lsp.buf.format()<CR>
 nnoremap <leader>v <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap [d <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
@@ -266,6 +271,7 @@ augroup END
 
 " disable the annoying history edit 
 nnoremap q: <Nop>
+
 
 
 " to load lua configs
