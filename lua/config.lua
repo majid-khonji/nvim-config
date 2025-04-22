@@ -14,8 +14,8 @@ require("plugin-configs/fterm-config")
 require("plugin-configs/notice-config")
 require("plugin-configs/dapui-config")
 require('neogit').setup {}
-require("todo-comments").setup {}
 require('Comment').setup {}
+require("todo-comments").setup {}
 require("notify").setup {
     stages = "fade",
     timeout = 2000,

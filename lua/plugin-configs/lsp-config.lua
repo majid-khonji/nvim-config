@@ -23,6 +23,11 @@ require('lspconfig')['lua_ls'].setup {
   }
 }
 
+-- Svelte
+require('lspconfig')['svelte'].setup {
+       capabilities = require('cmp_nvim_lsp').default_capabilities(),
+   }
+
 -- C/C++
 require('lspconfig')['clangd'].setup {
   capabilities = capabilities
@@ -87,12 +92,7 @@ sources = {
 -- }),
 -- matching = { disallow_symbol_nonprefix_matching = false }
 -- })
-cmp.setup.cmdline("/", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = "buffer" },
-    },
-})
+
 
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -106,4 +106,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { buffer = true, expr = false })
   end,
 })
-
