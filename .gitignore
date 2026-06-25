@@ -1,0 +1,17 @@
+# vim-plug installs plugins here (see init.vim plug#begin path)
+init.nvim/
+
+# Native package layout / legacy installs
+pack/
+
+# Old duplicate config tree
+.config/
+
+# Logs and editor junk
+*.log
+.nvimlog
+*.bkup
+init.lua.bkup
+*.swp
+*~
+.DS_Store

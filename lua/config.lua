@@ -14,6 +14,7 @@ require("plugin-configs/fterm-config")
 require("plugin-configs/notice-config")
 require("plugin-configs/dapui-config")
 require('neogit').setup {}
+require("plugin-configs/gitsigns-config")
 require("todo-comments").setup {}
 require("notify").setup {
     stages = "fade",

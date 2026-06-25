@@ -13,7 +13,7 @@ set incsearch
 set showmatch
 set noswapfile
 set scrolloff=8
-set signcolumn=auto
+set signcolumn=auto:1
 set colorcolumn=120
 set nowrap
 set hlsearch
@@ -125,7 +125,8 @@ Plug 'stevearc/aerial.nvim'
 " For python proper syntax. nvim-treesitter gives more detailed syntax highlighting
 Plug 'vim-python/python-syntax'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+" semshi crashes on some type annotations (e.g. VisualizerApp); pyright + treesitter cover highlighting
+" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 " Plug 'm-demare/hlargs.nvim'
 
 
@@ -140,6 +141,7 @@ Plug 'numToStr/FTerm.nvim'
 " git
 Plug 'NeogitOrg/neogit'
 Plug 'sindrets/diffview.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 " cmdline Center screen, messages notification
 Plug 'folke/noice.nvim'
