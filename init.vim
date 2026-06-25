@@ -32,7 +32,7 @@ let g:python3_host_prog='/usr/bin/python3'
 
 call plug#begin('~/.config/nvim/init.nvim')
 " obsidian
-Plug 'epwalsh/obsidian.nvim'
+" Plug 'epwalsh/obsidian.nvim'
 
 " gruvbox
 Plug 'ellisonleao/gruvbox.nvim'
@@ -65,6 +65,7 @@ Plug 'stevearc/dressing.nvim'
 """"
 " Lanugage server setup
 Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-null-ls.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -85,23 +86,24 @@ Plug 'CopilotC-Nvim/CopilotChat.nvim'
 """""
 " Avante - Cursor
 " Deps
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'stevearc/dressing.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'MeanderingProgrammer/render-markdown.nvim'
-
-" Optional deps
-" Plug 'hrsh7th/nvim-cmp'
-Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
-Plug 'HakonHarnes/img-clip.nvim'
-Plug 'zbirenbaum/copilot.lua'
-" Yay, pass source=true if you want to build from source
-Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
-
+" Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'stevearc/dressing.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'MunifTanjim/nui.nvim'
+" Plug 'MeanderingProgrammer/render-markdown.nvim'
+"
+" " Optional deps
+" " Plug 'hrsh7th/nvim-cmp'
+" Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+" Plug 'HakonHarnes/img-clip.nvim'
+" Plug 'zbirenbaum/copilot.lua'
+" " Yay, pass source=true if you want to build from source
+" Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+"
 """"""""
 " Agument AI Agent
-Plug 'augmentcode/augment.vim'
+" Plug 'augmentcode/augment.vim'
+Plug 'olimorris/codecompanion.nvim'
 """"""""
 
 " Toggle comment 
@@ -122,7 +124,11 @@ Plug 'stevearc/aerial.nvim'
 
 " For python proper syntax. nvim-treesitter gives more detailed syntax highlighting
 Plug 'vim-python/python-syntax'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+" Plug 'm-demare/hlargs.nvim'
+
+
 
 
 " highlight all occurences of a word
@@ -139,6 +145,7 @@ Plug 'sindrets/diffview.nvim'
 Plug 'folke/noice.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -187,9 +194,10 @@ noremap <Leader>d :NvimTreeToggle<CR> :AerialClose<CR>:CopilotChatClose<CR>
 " Copilot chat
 noremap <Leader>c <Esc>:AerialClose<CR>:NvimTreeClose<CR>:CopilotChatToggle<CR>
 noremap <c-s> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:CopilotChatToggle<CR>
+noremap <c-h> :CodeCompanionActions<CR>
 " Avante cursor
-noremap <c-h> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:lua require('avante').toggle()<CR>
-inoremap <c-h> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:lua require('avante').toggle()<CR>
+" noremap <c-h> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:lua require('avante').toggle()<CR>
+" inoremap <c-h> <Esc>:AerialClose<CR>:NvimTreeClose<CR>:lua require('avante').toggle()<CR>
 
 " nonremap <C-o> :Telescope live_grep<CR>
 
@@ -221,8 +229,7 @@ highlight IlluminatedWordText guibg=#3c3836 gui=NONE
 highlight IlluminatedWordRead guibg=#3c3836 gui=NONE
 highlight IlluminatedWordWrite guibg=#3c3836 gui=NONE
 
-" Use Enter to confirm completion in coc.nvim
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+" <CR> completion confirm is handled by nvim-cmp in lsp-config.lua
 """""""""""""""""
 " LSP Business 
 """""""""""""""""

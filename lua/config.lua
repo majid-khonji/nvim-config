@@ -7,20 +7,27 @@ require("plugin-configs/nvim-tree")
 require("plugin-configs/aerial-setup")
 require("plugin-configs/treesitter")
 require("plugin-configs/lualine-config")
-require("plugin-configs/obsidian-config")
-require("plugin-configs/avante-setup")
+-- require("plugin-configs/obsidian-config") -- plugin not installed
+-- require("plugin-configs/avante-setup")
 require("plugin-configs/copilot-config")
 require("plugin-configs/fterm-config")
 require("plugin-configs/notice-config")
 require("plugin-configs/dapui-config")
 require('neogit').setup {}
-require('Comment').setup {}
 require("todo-comments").setup {}
 require("notify").setup {
     stages = "fade",
     timeout = 2000,
     background_colour = "#000000",
 }
+
+require("codecompanion").setup({
+  opts = {
+    log_level = "DEBUG", -- or "TRACE"
+  }
+})
+
+require("plugin-configs/gruvbox")
 
 
 -- Replace the default 'eob' character with a blank space
