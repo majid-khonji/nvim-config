@@ -12,9 +12,9 @@ require("plugin-configs/lualine-config")
 require("plugin-configs/copilot-config")
 require("plugin-configs/fterm-config")
 require("plugin-configs/notice-config")
-require("plugin-configs/dapui-config")
 require('neogit').setup {}
 require("plugin-configs/gitsigns-config")
+require("plugin-configs/diffview-config")
 require("todo-comments").setup {}
 require("notify").setup {
     stages = "fade",

@@ -111,14 +111,6 @@ Plug 'numToStr/Comment.nvim'
 
 " Highlight TODO
 Plug 'folke/todo-comments.nvim'
-"""""
-" Debug business
-Plug 'mfussenegger/nvim-dap'
-Plug 'nvim-neotest/nvim-nio'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'ldelossa/nvim-dap-projects'
-Plug 'mfussenegger/nvim-dap-python'
-
 " Function and class Tree
 Plug 'stevearc/aerial.nvim'
 
@@ -254,20 +246,20 @@ nnoremap <leader>v <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap [d <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
 """""""""""""""""
+" Git / Diffview shortcuts
+" ;g          toggle Diffview
+" ;G / ;l     toggle file history
+" ]c / [c     next / prev hunk
+" ;gsp        preview hunk
+" ;gss        stage hunk
+" ;gsr        reset hunk
+" ;gsu        undo stage hunk
+" ;gsd        diff current file
 """""""""""""""""
-" Debug Business
+nnoremap <leader>g <cmd>lua toggle_diffview()<CR>
+nnoremap <leader>G <cmd>lua toggle_file_history()<CR>
+nnoremap <leader>l <cmd>lua toggle_file_history()<CR>
 """""""""""""""""
-nnoremap <Leader>g :lua require'dapui'.toggle()<CR>
-nnoremap <F5> :lua require'dap'.continue()<CR>
-nnoremap <F10> :lua require'dap'.step_over()<CR>
-nnoremap <F11> :lua require'dap'.step_into()<CR>
-nnoremap <F12> :lua require'dap'.step_out()<CR>
-nnoremap <Leader>b :lua require'dap'.toggle_breakpoint()<CR>
-" nnoremap <Leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-" nnoremap <Leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-" nnoremap <Leader>dr :lua require'dap'.repl.open()<CR>
-" nnoremap <Leader>dl :lua require'dap'.run_last()<CR>
-
 " Ensures that non of these shortcuts are overridden by other plugins
 augroup custom_mappings
   autocmd!

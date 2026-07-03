@@ -10,7 +10,6 @@ require("nvim-tree").setup({
     },
     view = {
         width = 30,
-        hide_root_folder = true, -- Hides the root folder
     },
     renderer = {
         group_empty = true,
@@ -36,10 +35,6 @@ require("nvim-tree").setup({
         },
         remove_file = {
             close_window = true,
-        },
-        rename_file = {
-            enable = true,
-            use_lsp = true, -- Use LSP to rename files and update references
         },
     },
     update_focused_file = {

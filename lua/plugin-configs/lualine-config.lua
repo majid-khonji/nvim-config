@@ -1,3 +1,5 @@
+vim.opt.showtabline = 0
+
 vim.api.nvim_set_hl(0, "StatusLine", { reverse = false })
 require('lualine').setup {
     options = {
@@ -12,7 +14,7 @@ require('lualine').setup {
         },
         ignore_focus = {},
         always_divide_middle = true,
-        always_show_tabline = true,
+        always_show_tabline = false,
         globalstatus = false,
         refresh = {
             statusline = 100,
